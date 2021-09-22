@@ -32,3 +32,8 @@ const app = new Vue({
 });
 
 ////// another task and div in VueJs
+Vue.component('task-manager', require('./components/TasksManager/App.vue').default);
+
+const tsk = new Vue({
+    el: '#task-manager',
+});

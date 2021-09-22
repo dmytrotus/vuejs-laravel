@@ -15,6 +15,11 @@
         <div id="app">
             <example-component></example-component>
         </div>
+
+        <hr />
+        <div id="task-manager">
+            <task-manager></task-manager>
+        </div>
     </body>
 
     <script src="{{ asset('js/app.js') }}"></script>
