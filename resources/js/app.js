@@ -30,3 +30,5 @@ Vue.component('example-component', require('./components/PeopleGenerator.vue').d
 const app = new Vue({
     el: '#app',
 });
+
+////// another task and div in VueJs

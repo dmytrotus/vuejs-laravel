@@ -7,6 +7,28 @@
         <button v-on:click="changeUserAsync()"
         :class="`btn btn-primary `+gender">Get Random User</button>
 
+        <button v-on:click="showModal()">Show Modal</button>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">{{ modal.title }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         
     </div>
 </template>
@@ -21,7 +43,10 @@
                 firstName: 'Jon Doe',
                 email: 'email@email.com',
                 gender: 'female',
-                picture: 'https://avataaars.io/?avatar'
+                picture: 'https://avataaars.io/?avatar',
+                modal: {
+                    title: 'Jakis tekst'
+                }
 
             }
         },
@@ -35,7 +60,14 @@
                 const res = await fetch('https://randomuser.me/api')
                 const { results } = await res.json();
                 this.firstName = results[0].name.first
+                this.showModal('Jakis inny tekst')
 
+            },
+            showModal(tekst){
+                if(tekst && tekst.length){
+                    this.modal.title = tekst;
+                }
+                $('#myModal').modal('show')
             }
         }
     }

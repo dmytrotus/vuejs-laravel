@@ -2097,6 +2097,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -2106,7 +2128,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       firstName: 'Jon Doe',
       email: 'email@email.com',
       gender: 'female',
-      picture: 'https://avataaars.io/?avatar'
+      picture: 'https://avataaars.io/?avatar',
+      modal: {
+        title: 'Jakis tekst'
+      }
     };
   },
   methods: {
@@ -2138,13 +2163,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 results = _yield$res$json.results;
                 _this.firstName = results[0].name.first;
 
-              case 8:
+                _this.showModal('Jakis inny tekst');
+
+              case 9:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    showModal: function showModal(tekst) {
+      if (tekst && tekst.length) {
+        this.modal.title = tekst;
+      }
+
+      $('#myModal').modal('show');
     }
   }
 });
@@ -2184,7 +2218,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/PeopleGe
 
 var app = new Vue({
   el: '#app'
-});
+}); ////// another task and div in VueJs
 
 /***/ }),
 
@@ -38488,10 +38522,106 @@ var render = function() {
         }
       },
       [_vm._v("Get Random User")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        on: {
+          click: function($event) {
+            return _vm.showModal()
+          }
+        }
+      },
+      [_vm._v("Show Modal")]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "myModal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "myModalTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "exampleModalLongTitle" }
+                  },
+                  [_vm._v(_vm._s(_vm.modal.title))]
+                ),
+                _vm._v(" "),
+                _vm._m(0)
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _vm._v("\n            ...\n          ")
+              ]),
+              _vm._v(" "),
+              _vm._m(1)
+            ])
+          ]
+        )
+      ]
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Close")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        [_vm._v("Save changes")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
